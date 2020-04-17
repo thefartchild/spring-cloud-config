@@ -1,0 +1,15 @@
+server:
+  port: 8585
+spring:
+  application:
+    name: server-consumer  #服务名称，随意取
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8383/eureka #注册到Eureka的地址

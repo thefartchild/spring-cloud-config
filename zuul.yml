@@ -1,0 +1,27 @@
+server:
+  port: 8686
+spring:
+  application:
+    name: Zuul-Server   #Zuul网关在Eureka的服务名称，随便取
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8383/eureka #Eureka的注册地址
+zuul:
+  routes:
+    provider.serviceId: Zuul-Server #没有提示，自己取名称，值为服务的名称
+    # 这里可以自定义
+    demo1:
+      # 匹配的路由规则
+      path: /server-provider/**
+      # 路由的目标服务名
+      serviceId: server-provider
+    demo2:
+      # 匹配的路由规则
+      path: /server-consumer/**
+      # 路由的目标服务名
+      serviceId: server-consumer
+
+logging:
+  level:
+    com.wx: DEBUG
